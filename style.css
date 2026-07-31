@@ -15,6 +15,9 @@
     --accent-black: #0f172a;
     --accent-hover: #334155;
     
+    /* NEW: Bronze Accent for Cohesion with Logo */
+    --accent-bronze: #5d4037; 
+    
     /* Badges & Shadows */
     --badge-bg: #fef3c7;
     --badge-text: #92400e;
@@ -23,6 +26,10 @@
     
     /* Dimensions */
     --radius: 8px;
+
+    /* Typography */
+    --font-heading: 'Noto Serif Display', serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 
@@ -36,14 +43,18 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-main);
     color: var(--text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Base Page Container */
+/* NEW: Apply the elegant logo font to all headings */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+}
+
 /* Base Page Container */
 main {
     max-width: 1200px;
@@ -93,6 +104,24 @@ header h1 {
     color: var(--accent-black);
 }
 
+/* NEW: Logo Container Styling */
+.logo-link {
+    text-decoration: none;
+    line-height: 0; 
+}
+
+/* NEW: Logo Image Sizing */
+.logo-img {
+    max-height: 180px;       
+    width: auto;         
+    vertical-align: middle; 
+    transition: transform 0.2s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.03); 
+}
+
 /* Navigation Links */
 nav a {
     color: var(--text-secondary);
@@ -103,8 +132,9 @@ nav a {
     transition: color 0.2s ease;
 }
 
+/* NEW: Updated hover state to use the bronze logo accent */
 nav a:hover {
-    color: var(--accent-black);
+    color: var(--accent-bronze);
 }
 
 /* Universal Footer */
@@ -141,7 +171,6 @@ footer {
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
-    
 }
 
 .hero-content p {
@@ -235,7 +264,7 @@ article p em {
    ========================================================================== */
 article a, 
 .btn,
-.btn {
+.btn-primary {
     display: inline-block;
     text-align: center;
     background-color: var(--accent-black);

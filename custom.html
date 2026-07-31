@@ -4,60 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pauly Bruv Engraving - Custom Orders</title>
+    <!-- Google Fonts: Noto Serif Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Main Navigation Header with Logo -->
     <header>
-        <h1>Pauly Bruv Engraving</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="custom.html">Custom Orders</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    <!-- Logo acts as the home link -->
+    <a href="index.html" class="logo-link">
+        <!-- Replace 'image_4.png' with your actual logo file path -->
+        <img src="images/logo.png" alt="Pauly Bruv Engraving Logo" class="logo-img">
+    <!-- Keep the old h1 hidden for accessibility/screen readers -->
+    <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Pauly Bruv Engraving</h1>
+    </a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
     <!-- Custom Engraving Submission Form -->
     <main>
-        <h2>Request a Custom Engraving Quote</h2>
-        <p>Have a custom logo, image, or tailored design requirement? Fill out the form below.</p>
+        <div class="custom-order-container">
+            <div class="custom-order-header">
+                <h2>Request a Custom Engraving Quote</h2>
+                <p>Have a custom logo, image, or tailored design requirement? Fill out the form below.</p>
+            </div>
 
-        <form action="/submit-quote" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="name">Your Name:</label><br>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <br>
-            <div>
-                <label for="email">Email Address:</label><br>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <br>
-            <div>
-                <label for="material">Preferred Material:</label><br>
-                <select id="material" name="material">
-                    <option value="slate">Natural Slate</option>
-                    <option value="mdf">Layered MDF</option>
-                    <option value="wood">Organic Wood / Plywood</option>
-                    <option value="other">Other / Not Sure</option>
-                </select>
-            </div>
-            <br>
-            <div>
-                <label for="description">Project Description & Dimensions:</label><br>
-                <textarea id="description" name="description" rows="5" cols="40" placeholder="Describe text, layout, sizing..." required></textarea>
-            </div>
-            <br>
-            <div>
-                <label for="artwork">Upload Custom Design/Logo (PNG, JPG, SVG):</label><br>
-                <input type="file" id="artwork" name="artwork" accept=".png, .jpg, .jpeg, .svg">
-            </div>
-            <br>
-            <button type="submit">Submit Quote Request</button>
-        </form>
+            <form action="/submit-quote" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="material">Preferred Material:</label>
+                    <select id="material" name="material" class="form-control">
+                        <option value="slate">Natural Slate</option>
+                        <option value="mdf">Layered MDF</option>
+                        <option value="wood">Organic Wood / Plywood</option>
+                        <option value="other">Other / Not Sure</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Project Description & Dimensions:</label>
+                    <textarea id="description" name="description" placeholder="Describe text, layout, sizing..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="artwork">Upload Custom Design/Logo (PNG, JPG, SVG):</label>
+                    <div class="file-upload-zone">
+                        <label for="artwork" style="cursor:pointer; color: var(--text-secondary);">Click to upload or drag and drop your file here</label>
+                        <input type="file" id="artwork" name="artwork" accept=".png, .jpg, .jpeg, .svg">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit">Submit Quote Request</button>
+            </form>
+        </div>
     </main>
 
     <!-- Footer -->
