@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pauly Bruv Engraving - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <h1>Pauly Bruv Engraving</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom.html">Custom Orders</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Contact Information -->
+    <main>
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to get in touch, please use the form below or reach out to us directly.</p>
+
+        <div class="contact-info">
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> info@email.com</p>
+            <p><strong>Address:</strong> 123 Engraver's Way, Craftsville, CV 12345</p>
+        </div>
+
+        <form action="/submit-contact" method="POST">
+            <div>
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <br>
+            <div>
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br>
+            <div>
+                <label for="message">Your Message:</label><br>
+                <textarea id="message" name="message" rows="5" cols="40" placeholder="How can we help you?" required></textarea>
+            </div>
+            <br>
+            <button type="submit">Send Message</button>
+        </form>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

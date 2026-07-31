@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pauly Bruv Engraving - Custom Orders</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <h1>Pauly Bruv Engraving</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom.html">Custom Orders</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Custom Engraving Submission Form -->
+    <main>
+        <h2>Request a Custom Engraving Quote</h2>
+        <p>Have a custom logo, image, or tailored design requirement? Fill out the form below.</p>
+
+        <form action="/submit-quote" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <br>
+            <div>
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br>
+            <div>
+                <label for="material">Preferred Material:</label><br>
+                <select id="material" name="material">
+                    <option value="slate">Natural Slate</option>
+                    <option value="mdf">Layered MDF</option>
+                    <option value="wood">Organic Wood / Plywood</option>
+                    <option value="other">Other / Not Sure</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="description">Project Description & Dimensions:</label><br>
+                <textarea id="description" name="description" rows="5" cols="40" placeholder="Describe text, layout, sizing..." required></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="artwork">Upload Custom Design/Logo (PNG, JPG, SVG):</label><br>
+                <input type="file" id="artwork" name="artwork" accept=".png, .jpg, .jpeg, .svg">
+            </div>
+            <br>
+            <button type="submit">Submit Quote Request</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
