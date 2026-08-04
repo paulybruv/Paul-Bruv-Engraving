@@ -32,7 +32,6 @@
 /* ==========================================================================
    2. GLOBAL BASE STYLES
    ========================================================================== */
-/* Box-sizing: border-box ensures padding and borders are included in total width/height calculations */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -58,7 +57,7 @@ main {
     padding: 2rem 1.5rem 5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers child sections horizontally within the main container */
+    align-items: center;
 }
 
 main h2 {
@@ -79,19 +78,13 @@ main p {
    3. NAVIGATION HEADER & FOOTER (FLEXBOX)
    ========================================================================== */
 header {
-    /* FLEXBOX: Converts header into a flex container */
     display: flex;
-    /* Pushes the logo to the far left and navigation to the far right */
     justify-content: space-between;
-    /* Vertically centers the logo image and navigation links relative to each other */
     align-items: center;
-    
     background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px); /* Blur effect under glassmorphism header */
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-light);
     padding: 1rem 2rem;
-    
-    /* Keeps header fixed to the top of the browser screen while scrolling */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -106,19 +99,18 @@ header {
 }
 
 .logo-img {
-    max-height: 50px; /* Constrains logo height so header doesn't expand unexpectedly */
+    max-height: 50px;
     width: auto; 
     transition: transform 0.2s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.03); /* Subtle zoom effect when mouse hovers over logo */
+    transform: scale(1.03);
 }
 
-/* Nav Link Flex Alignment */
 nav {
     display: flex;
-    gap: 1.5rem; /* Creates clean spacing between links without needing manual margins */
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -179,24 +171,19 @@ footer {
    ========================================================================== */
 main section {
     display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap onto new rows on mobile/smaller screens */
-    gap: 2rem;       /* Equal space between row items and column items */
-    justify-content: center; /* Centers product grid on larger viewports */
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
     padding: 2rem 0;
     width: 100%;
 }
 
-/* Individual Product Cards */
 article {
     display: flex;
-    flex-direction: column; /* Stacks contents inside the card (Image -> Title -> Text -> Button) */
-    justify-content: space-between; /* Spreads content so button always lands at bottom */
-    
-    /* Flex Shorthand: flex-grow (1), flex-shrink (1), flex-basis (280px) */
-    /* Cards grow and shrink dynamically, but won't collapse below 280px */
+    flex-direction: column;
+    justify-content: space-between;
     flex: 1 1 280px; 
     max-width: 350px;
-    
     background: var(--surface-white);
     border: 1px solid var(--border-light);
     border-radius: 12px;
@@ -207,7 +194,7 @@ article {
 }
 
 article:hover {
-    transform: translateY(-3px); /* Subtle card lift on hover */
+    transform: translateY(-3px);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-md);
 }
@@ -215,7 +202,7 @@ article:hover {
 article img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Crops image cleanly without distorting image aspect ratio */
+    object-fit: cover;
     background-color: var(--bg-main);
     border-radius: 8px;
     margin-bottom: 1.25rem;
@@ -272,7 +259,6 @@ article p strong {
     transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
-/* Specific alignment for buttons inside product cards */
 article a {
     display: inline-block;
     text-align: center;
@@ -283,8 +269,8 @@ article a {
     font-size: 0.875rem;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
-    margin-top: auto; /* Pushes button to bottom of card */
-    align-self: center; /* Keeps button centered on product cards */
+    margin-top: auto;
+    align-self: center;
     transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
@@ -407,115 +393,176 @@ textarea:focus {
     background-color: var(--accent-hover);
     transform: translateY(-1px);
 }
+
 /* ==========================================================================
-   LIVE MDF SIGN PREVIEWER (BLACK & WHITE FINISHES)
+   EXACT MDF STREET SIGN MOCKUP (INSET CORNERS & DUAL-LAYER)
    ========================================================================== */
 .sign-preview-wrapper {
     background: var(--surface-white);
     border: 1px solid var(--border-light);
     border-radius: 12px;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     margin-bottom: 2rem;
     text-align: center;
     box-shadow: var(--shadow-sm);
     width: 100%;
 }
 
+/* Mockup Frame forced to exact 395 x 98.75 mm aspect ratio (4:1) */
 .mdf-mockup {
     width: 100%;
     max-width: 520px;
-    height: 140px;
+    aspect-ratio: 395 / 98.75;
     margin: 1.5rem auto;
-    border-radius: 6px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    
+    /* Inset corner shape matching physical vector cut */
+    clip-path: polygon(
+        14px 0%, calc(100% - 14px) 0%, 
+        100% 14px, 100% calc(100% - 14px), 
+        calc(100% - 14px) 100%, 14px 100%, 
+        0% calc(100% - 14px), 0% 14px
+    );
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;
 }
 
-/* Option A: Black Board / White Text & Border */
+/* Style A: Black Outer Frame / White Faceplate / Black Lettering */
 .mdf-mockup.black-base-white-text {
-    background-color: #111111;
-    border: 5px solid #222222;
+    background-color: #121212;
 }
 
 .mdf-mockup.black-base-white-text .sign-border {
-    border: 3px solid #ffffff;
+    background-color: #f2f2f2;
+    border: 2px solid #e0e0e0;
 }
 
 .mdf-mockup.black-base-white-text #preview-text-display {
-    color: #ffffff;
+    color: #121212;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-/* Option B: White Board / Black Text & Border */
+/* Style B: Inverted Color Scheme */
 .mdf-mockup.white-base-black-text {
-    background-color: #fcfcfc;
-    border: 5px solid #e0e0e0;
+    background-color: #f2f2f2;
 }
 
 .mdf-mockup.white-base-black-text .sign-border {
-    border: 3px solid #111111;
+    background-color: #121212;
+    border: 2px solid #222222;
 }
 
 .mdf-mockup.white-base-black-text #preview-text-display {
-    color: #111111;
+    color: #f2f2f2;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-/* Inner Frame Boundary */
+/* Inner Faceplate Cutout */
 .sign-border {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    padding: 0 1.25rem;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    
+    clip-path: polygon(
+        10px 0%, calc(100% - 10px) 0%, 
+        100% 10px, 100% calc(100% - 10px), 
+        calc(100% - 10px) 100%, 10px 100%, 
+        0% calc(100% - 10px), 0% 10px
+    );
 }
 
+/* Sign Typography */
 #preview-text-display {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    word-break: break-word;
-    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1;
 }
 
-/* Finish Toggle Control Buttons */
+/* ==========================================================================
+   PREMIUM FINISH TOGGLE BUTTONS
+   ========================================================================== */
 .preview-controls {
     display: flex;
-    gap: 0.75rem;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 1rem;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
 }
 
 .preview-controls label {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--text-secondary);
 }
 
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .finish-btn {
-    padding: 0.4rem 0.9rem;
-    border: 1px solid var(--border-light);
-    background: var(--bg-main);
-    border-radius: var(--radius);
-    cursor: pointer;
+    background-color: var(--surface-white);
+    color: var(--text-primary);
+    border: 2px solid var(--border-light);
+    padding: 0.7rem 1.4rem;
     font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.finish-btn::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--border-hover);
+    transition: background-color 0.2s ease;
+}
+
+.finish-btn:hover {
+    border-color: var(--accent-black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .finish-btn.active {
-    background: var(--accent-black);
-    color: var(--surface-white);
-    border-color: var(--accent-black);
+    background-color: #121212;
+    color: #ffffff;
+    border-color: #121212;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
+
+.finish-btn.active::before {
+    background-color: #22c55e;
+}
+
 
 /* ==========================================================================
    8. ABOUT THE MAKER (HOME PAGE)
@@ -561,7 +608,7 @@ textarea:focus {
    ========================================================================== */
 @media (max-width: 600px) {
     header {
-        flex-direction: column; /* Stacks logo above navigation links on small screens */
+        flex-direction: column;
         gap: 1rem;
     }
 
