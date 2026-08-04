@@ -14,9 +14,7 @@
     --border-hover: #cbd5e1;
     --accent-black: #0f172a;
     --accent-hover: #334155;
-    
-    /* NEW: Bronze Accent for Cohesion with Logo */
-    --accent-bronze: #5d4037; 
+    --accent-bronze: #5d4037; /* Bronze accent matching brand logo */
     
     /* Badges & Shadows */
     --badge-bg: #fef3c7;
@@ -24,18 +22,17 @@
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.02);
     
-    /* Dimensions */
+    /* Dimensions & Typography */
     --radius: 8px;
-
-    /* Typography */
     --font-heading: 'Noto Serif Display', serif;
     --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 
 /* ==========================================================================
-   2. GLOBAL BASE STYLES (Applies to ALL Pages)
+   2. GLOBAL BASE STYLES
    ========================================================================== */
+/* Box-sizing: border-box ensures padding and borders are included in total width/height calculations */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -50,7 +47,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* NEW: Apply the elegant logo font to all headings */
 h1, h2, h3 {
     font-family: var(--font-heading);
 }
@@ -60,10 +56,9 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1.5rem 5rem 1.5rem;
-    text-align: center;          /* Centers text elements like h2 and p */
     display: flex;
     flex-direction: column;
-    align-items: center;         /* Centers block/inline-block items like the button */
+    align-items: center; /* Centers child sections horizontally within the main container */
 }
 
 main h2 {
@@ -71,73 +66,74 @@ main h2 {
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 main p {
-    max-width: 700px;            /* Keeps long paragraphs looking clean when centered */
+    max-width: 700px;
     margin-bottom: 1.5rem;
 }
 
 
 /* ==========================================================================
-   3. NAVIGATION HEADER & FOOTER (Applies to ALL Pages)
+   3. NAVIGATION HEADER & FOOTER (FLEXBOX)
    ========================================================================== */
-/* Header Bar */
 header {
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border-light);
-    padding: 1.25rem 2rem;
+    /* FLEXBOX: Converts header into a flex container */
     display: flex;
+    /* Pushes the logo to the far left and navigation to the far right */
     justify-content: space-between;
+    /* Vertically centers the logo image and navigation links relative to each other */
     align-items: center;
+    
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px); /* Blur effect under glassmorphism header */
+    border-bottom: 1px solid var(--border-light);
+    padding: 1rem 2rem;
+    
+    /* Keeps header fixed to the top of the browser screen while scrolling */
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: var(--shadow-sm);
 }
 
-header h1 {
-    font-size: 1.1rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--accent-black);
-}
-
-/* NEW: Logo Container Styling */
 .logo-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     line-height: 0; 
 }
 
-/* NEW: Logo Image Sizing */
 .logo-img {
-    max-height: 180px;       
-    width: auto;         
-    vertical-align: middle; 
+    max-height: 50px; /* Constrains logo height so header doesn't expand unexpectedly */
+    width: auto; 
     transition: transform 0.2s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.03); 
+    transform: scale(1.03); /* Subtle zoom effect when mouse hovers over logo */
 }
 
-/* Navigation Links */
+/* Nav Link Flex Alignment */
+nav {
+    display: flex;
+    gap: 1.5rem; /* Creates clean spacing between links without needing manual margins */
+    align-items: center;
+}
+
 nav a {
     color: var(--text-secondary);
     text-decoration: none;
-    margin-left: 1.75rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease-in-out;
 }
 
-/* NEW: Updated hover state to use the bronze logo accent */
 nav a:hover {
     color: var(--accent-bronze);
 }
 
-/* Universal Footer */
 footer {
     border-top: 1px solid var(--border-light);
     text-align: center;
@@ -162,7 +158,6 @@ footer {
 
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
     width: 100%;
 }
 
@@ -180,45 +175,53 @@ footer {
 
 
 /* ==========================================================================
-   5. SHOP PAGE - PRODUCT CATALOG & CARDS
+   5. SHOP PAGE - PRODUCT CATALOG FLEXBOX GRID
    ========================================================================== */
-/* Catalog Grid Container */
-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+main section {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap onto new rows on mobile/smaller screens */
+    gap: 2rem;       /* Equal space between row items and column items */
+    justify-content: center; /* Centers product grid on larger viewports */
+    padding: 2rem 0;
+    width: 100%;
 }
 
 /* Individual Product Cards */
 article {
+    display: flex;
+    flex-direction: column; /* Stacks contents inside the card (Image -> Title -> Text -> Button) */
+    justify-content: space-between; /* Spreads content so button always lands at bottom */
+    
+    /* Flex Shorthand: flex-grow (1), flex-shrink (1), flex-basis (280px) */
+    /* Cards grow and shrink dynamically, but won't collapse below 280px */
+    flex: 1 1 280px; 
+    max-width: 350px;
+    
     background: var(--surface-white);
     border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
     position: relative;
     box-shadow: var(--shadow-sm);
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 article:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Subtle card lift on hover */
     border-color: var(--border-hover);
     box-shadow: var(--shadow-md);
 }
 
 article img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: 200px;
+    object-fit: cover; /* Crops image cleanly without distorting image aspect ratio */
     background-color: var(--bg-main);
     border-radius: 8px;
     margin-bottom: 1.25rem;
     border: 1px solid var(--border-light);
 }
 
-/* Product Badges (e.g. Sale, Special Bundle) */
 mark {
     position: absolute;
     top: 2rem;
@@ -238,7 +241,6 @@ article h3 {
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
 }
 
 article p {
@@ -252,17 +254,10 @@ article p strong {
     font-size: 1.1rem;
 }
 
-article p em {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-style: normal;
-}
-
 
 /* ==========================================================================
    6. REUSABLE BUTTONS
    ========================================================================== */
-article a, 
 .btn,
 .btn-primary {
     display: inline-block;
@@ -274,7 +269,22 @@ article a,
     font-size: 0.875rem;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
-    margin-top: 1.5rem;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Specific alignment for buttons inside product cards */
+article a {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--accent-black);
+    color: var(--surface-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    margin-top: auto; /* Pushes button to bottom of card */
+    align-self: center; /* Keeps button centered on product cards */
     transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
@@ -289,15 +299,14 @@ article a:hover,
 /* ==========================================================================
    7. CUSTOM ORDER PAGE & FORMS
    ========================================================================== */
-/* Main Form Card */
 .custom-order-container {
     max-width: 800px;
+    width: 100%;
     margin: 0 auto;
     padding: 2.5rem;
     background-color: var(--surface-white);
     border: 1px solid var(--border-light);
     border-radius: 12px;
-    color: var(--text-primary);
     box-shadow: var(--shadow-sm);
 }
 
@@ -308,30 +317,11 @@ article a:hover,
     padding-bottom: 1.5rem;
 }
 
-.custom-order-header h1 {
+.custom-order-header h2 {
     font-size: 2rem;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-}
-
-.custom-order-header p {
-    color: var(--text-secondary);
-    font-size: 1rem;
-}
-
-/* Form Groups & Labels */
-.form-section {
-    margin-bottom: 2rem;
-}
-
-.form-section-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .form-group {
@@ -347,13 +337,6 @@ article a:hover,
     color: var(--text-primary);
 }
 
-.form-group .help-text {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-}
-
-/* Input Fields, Selects & Textareas */
 .form-control,
 input[type="text"],
 input[type="email"],
@@ -368,7 +351,6 @@ textarea {
     font-size: 0.95rem;
     font-family: inherit;
     transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
-    box-sizing: border-box;
 }
 
 textarea {
@@ -387,7 +369,6 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
 }
 
-/* File Upload Zone */
 .file-upload-zone {
     border: 2px dashed var(--border-light);
     border-radius: var(--radius);
@@ -407,46 +388,6 @@ textarea:focus {
     display: none;
 }
 
-/* Selection Cards Grid (Radio & Checkboxes) */
-.option-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-}
-
-.option-card {
-    position: relative;
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius);
-    padding: 1rem;
-    cursor: pointer;
-    text-align: center;
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-}
-
-.option-card input[type="radio"],
-.option-card input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-}
-
-.option-card:hover {
-    border-color: var(--border-hover);
-    color: var(--text-primary);
-}
-
-.option-card.selected,
-.option-card:has(input:checked) {
-    border-color: var(--accent-black);
-    background-color: var(--surface-white);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
-}
-
-/* Form Submit Button */
 .btn-submit {
     width: 100%;
     padding: 0.85rem 2rem;
@@ -467,25 +408,9 @@ textarea:focus {
     transform: translateY(-1px);
 }
 
-.btn-submit:active {
-    transform: translateY(0);
-}
-
 
 /* ==========================================================================
-   8. MEDIA QUERIES (Mobile & Tablet Responsiveness)
-   ========================================================================== */
-@media (max-width: 600px) {
-    .custom-order-container {
-        padding: 1.25rem;
-    }
-    
-    .option-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* ==========================================================================
-   9. ABOUT THE MAKER (HOME PAGE) - TEXT ONLY
+   8. ABOUT THE MAKER (HOME PAGE)
    ========================================================================== */
 .about-maker {
     width: 90%; 
@@ -494,20 +419,14 @@ textarea:focus {
     border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 3.5rem 2rem;
-    
-    /* SLEDGEHAMMER CENTERING: Forces the card to the middle */
-    margin: 5rem auto 2rem auto !important; 
-    
+    margin: 3rem auto 2rem auto; 
     box-shadow: var(--shadow-sm);
-    
-    /* SLEDGEHAMMER CENTERING: Forces the text inside to the middle */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center !important; 
+    text-align: center; 
 }
 
-/* Forces the inner container to center its contents */
 .about-content {
     width: 100%;
     text-align: center;
@@ -517,7 +436,6 @@ textarea:focus {
     color: var(--text-primary);
     font-size: 2.2rem;
     margin-bottom: 1.25rem;
-    text-align: center;
 }
 
 .about-maker p {
@@ -527,96 +445,27 @@ textarea:focus {
     max-width: 700px; 
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
-/* Make it stack neatly on smaller screens */
-@media (max-width: 768px) {
+
+/* ==========================================================================
+   9. MEDIA QUERIES (RESPONSIVENESS)
+   ========================================================================== */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stacks logo above navigation links on small screens */
+        gap: 1rem;
+    }
+
+    nav {
+        margin-left: 0;
+    }
+
+    .custom-order-container {
+        padding: 1.25rem;
+    }
+
     .about-maker {
         padding: 2.5rem 1.5rem;
-        margin-top: 3rem !important;
     }
-}
-/* ==========================================
-   HEADER & NAVIGATION FLEXBOX LAYOUT
-   ========================================== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo-img {
-    max-height: 50px;
-    width: auto;
-}
-
-nav {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: 600;
-    transition: color 0.2s ease-in-out;
-}
-
-nav a:hover {
-    color: #5e361b;
-}
-
-/* ==========================================
-   PRODUCT CATALOG FLEXBOX GRID
-   ========================================== */
-main section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    padding: 2rem 0;
-}
-
-article {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1 1 280px; /* Flex-grow, shrink, and base width */
-    max-width: 350px;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-article img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-article h3 {
-    margin-top: 0;
-    font-size: 1.25rem;
-}
-
-/* Push button to bottom of cards for uniform height */
-article .btn, 
-article a {
-    margin-top: auto;
-    align-self: flex-start;
 }
