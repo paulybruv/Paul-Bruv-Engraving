@@ -17,7 +17,7 @@
         <!-- Logo acts as the home link -->
         <a href="index.html" class="logo-link">
             <img src="assets/images/logo.png" alt="Pauly Bruv Engraving Logo" class="logo-img">
-            <!-- Keep the old h1 hidden for accessibility/screen readers -->
+            <!-- Hidden h1 for accessibility/screen readers -->
             <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Pauly Bruv Engraving</h1>
         </a>
         <nav>
@@ -36,22 +36,45 @@
                 <p>Have a custom logo, image, or tailored design requirement? Fill out the form below.</p>
             </div>
 
+            <!-- Live MDF Street Sign Previewer (Placed inside Main) -->
+            <div class="sign-preview-wrapper">
+                <h3>Live Street Sign Preview</h3>
+                <div id="mdf-sign-mockup" class="mdf-mockup black-base-white-text">
+                    <div class="sign-border">
+                        <span id="preview-text-display">YOUR TEXT HERE</span>
+                    </div>
+                </div>
+
+                <!-- Finish Style Toggles -->
+                <div class="preview-controls">
+                    <label>Color Options:</label>
+                    <button type="button" class="finish-btn active" onclick="setFinish('black-base-white-text')">Black Sign / White Text</button>
+                    <button type="button" class="finish-btn" onclick="setFinish('white-base-black-text')">White Sign / Black Text</button>
+                </div>
+            </div>
+
+            <!-- Custom Quote Form -->
             <form action="/submit-quote" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
+                    <label for="custom-text-input">Custom Sign Text (Live Preview Above):</label>
+                    <input type="text" id="custom-text-input" name="custom_text" class="form-control" placeholder="e.g. ST ANDREW'S WAY B9">
+                </div>
+
+                <div class="form-group">
                     <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="material">Preferred Material:</label>
                     <select id="material" name="material" class="form-control">
-                        <option value="slate">Natural Slate</option>
                         <option value="mdf">Layered MDF</option>
+                        <option value="slate">Natural Slate</option>
                         <option value="wood">Organic Wood / Plywood</option>
                         <option value="other">Other / Not Sure</option>
                     </select>
@@ -59,7 +82,7 @@
                 
                 <div class="form-group">
                     <label for="description">Project Description & Dimensions:</label>
-                    <textarea id="description" name="description" placeholder="Describe text, layout, sizing..." required></textarea>
+                    <textarea id="description" name="description" class="form-control" placeholder="Describe text, layout, sizing..." required></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -79,6 +102,9 @@
     <footer>
         <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
     </footer>
+
+    <!-- App JavaScript -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 </html>
