@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pauly Bruv Engraving - Shop</title>
+    <title>Local Business & Commercial Orders - Pauly Bruv Engraving</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <!-- Standardized Navigation Header -->
+    <!-- Standard Header -->
     <header>
       <a href="index.html" class="logo-link">
         <img
@@ -42,76 +42,125 @@
         <a href="tactical-coasters.html">Tactical Coasters</a>
         <a href="magnets.html">Magnets</a>
         <a href="custom.html">Custom Orders</a>
-        <a href="shop.html" class="active">Shop</a>
+        <a href="business.html" class="active">Local Business</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
 
-    <!-- Main Product Catalog -->
+    <!-- Page Header -->
+    <section class="page-header">
+      <h2>Bespoke Branding & Display Stands for Local Businesses</h2>
+      <p>
+        Custom laser-engraved QR payment displays, acrylic stand sets, and
+        promotional merch made right here in Birmingham.
+      </p>
+    </section>
+
     <main>
-      <h2>Product Catalog</h2>
+      <!-- Commercial Offerings Grid -->
+      <section class="featured-sets">
+        <h2>Commercial Services & Counter Displays</h2>
+        <div class="product-grid">
+          <!-- Card 1: Veon Coaster & Stand Set -->
+          <article class="product-card">
+            <img
+              src="assets/images/veon-stand-set.png"
+              alt="Bespoke Branded QR Coaster and Acrylic Stand Set"
+              class="product-img"
+            />
+            <div class="product-info">
+              <h3>Custom QR Coaster & Business Card Sets</h3>
+              <p class="description">
+                Precision engraved wood coasters paired with business card with
+                holder. Ideal for tech agencies, trades, and venue counters.
+              </p>
+            </div>
+          </article>
 
-      <section>
-        <!-- Product 1: Tactics Coaster Set -->
-        <article>
-          <img
-            src="assets/images/tac-coaster.jpg"
-            alt="Iconic Match Tactics Slate Coasters"
-          />
-          <h3>Iconic Football Match Tactics Coasters (Set of 4)</h3>
-          <p>
-            Etched natural slate coasters featuring detailed tactical match
-            paths, famous goals, and final scores.
-          </p>
-          <p><strong>Price:</strong> £12.00</p>
-          <a href="tactical-coasters.html">Customize Tactics & Order</a>
-        </article>
+          <!-- Card 2: Council Wax QR Stand -->
+          <article class="product-card">
+            <img
+              src="assets/images/council-wax-stand.jpg"
+              alt="Custom Laser Engraved QR Code Counter Display Stand"
+              class="product-img"
+            />
+            <div class="product-info">
+              <h3>Interactive QR Counter Displays</h3>
+              <p class="description">
+                Multi-logo wooden counter displays engraved with scannable
+                payment QR codes and social handles for market stalls,
+                independent cafes, and local shops.
+              </p>
+            </div>
+          </article>
 
-        <!-- Product 2: Home Bar / Man Cave Bundle -->
-        <article>
-          <mark>SPECIAL BUNDLE OFFER</mark>
-          <img
-            src="assets/images/man-cave.jpg"
-            alt="Man Cave & Home Bar Gift Bundle"
-          />
-          <h3>Man Cave & Home Bar Gift Bundle</h3>
-          <p>
-            Includes 1x Custom 3D Layered MDF Bar/Street Sign + 1x Set of 4
-            Tactical Match Slate Coasters.
-          </p>
-          <p><strong>Bundle Price:</strong> £32.00 <em>(Save £5.00)</em></p>
-          <a href="contact.html?product=man-cave-bundle">Configure Bundle</a>
-        </article>
+          <!-- Card 3: Bedtime Goblin Stand -->
+          <article class="product-card">
+            <img
+              src="assets/images/goblin-stand.jpg"
+              alt="Custom Wooden Promotional Display Stand, Book Display, and QR Tokens"
+              class="product-img"
+            />
+            <div class="product-info">
+              <h3>Promotional & Author Display Sets</h3>
+              <p class="description">
+                Complete point-of-sale display packages including engraved
+                counter stands, custom-cut QR tokens, and book/product displays
+                for launches, markets, and retail counters.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-        <!-- Product 3: Standard Layered Street Sign -->
-        <article>
-          <img
-            src="assets/images/mdf-sign.jpg"
-            alt="3D Layered MDF Street Sign"
-          />
-          <h3>3D Layered MDF Street Sign</h3>
-          <p>
-            395x98.75mm pre-sealed, painted, and precision laser-cut custom
-            street sign.
-          </p>
-          <p><strong>Price:</strong> £25.00</p>
-          <a href="street-signs.html">Customize & View Details</a>
-        </article>
+      <!-- Business Quote Form -->
+      <section class="custom-request-box">
+        <h2>Request a Commercial Quote</h2>
+        <p>
+          Need custom QR displays or promotional merch? Send over your idea and
+          logo files for a quick quote.
+        </p>
 
-        <!-- Product 4: Local Slang Wood Magnets -->
-        <article>
-          <img
-            src="assets/images/slang-mags.jpg"
-            alt="Brummie Slang Wood Magnets"
-          />
-          <h3>Brummie Slang Wood Magnets</h3>
-          <p>
-            Laser-cut organic wood magnets featuring local sayings or custom
-            text.
-          </p>
-          <p><strong>Price:</strong> £10.00 (Set of 3)</p>
-          <a href="magnets.html">Customize & View Details</a>
-        </article>
+        <form action="contact.html" method="GET" class="custom-goal-form">
+          <input type="hidden" name="type" value="business-quote" />
+
+          <div class="form-group">
+            <label for="bizName">Business / Trading Name:</label>
+            <input
+              type="text"
+              id="bizName"
+              name="business_name"
+              placeholder="e.g. Council Wax / Local Shop"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="bizProduct">Service Interest:</label>
+            <select id="bizProduct" name="product_type">
+              <option value="qr-stand">Custom QR Counter Stand</option>
+              <option value="coaster-stand">
+                QR Coaster & Business Card Set
+              </option>
+              <option value="promo-merch">Pop-up Display & Custom Merch</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="bizDetails">Order Specs & Quantity:</label>
+            <textarea
+              id="bizDetails"
+              name="order_details"
+              rows="4"
+              placeholder="Tell us what you need engraved, required dimensions, quantity, and if you have vector files (SVG/DXF/PNG) ready."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Submit Commercial Inquiry
+          </button>
+        </form>
       </section>
     </main>
 
