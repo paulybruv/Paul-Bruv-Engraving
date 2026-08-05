@@ -145,32 +145,75 @@ footer {
 }
 
 /* ==========================================================================
-   4. HOME PAGE & GENERAL PAGE HEADERS
+   4. HOME PAGE HERO BANNER & PAGE HEADERS
    ========================================================================== */
 .hero {
+  width: 100%;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid var(--border-light);
+  padding: 3.5rem 1.5rem;
+}
+
+.hero-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1 1 480px;
+  text-align: left;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--accent-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-black);
+  color: var(--surface-white);
+}
+
+.hero-image-wrapper {
+  flex: 1 1 500px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 3rem 1.5rem 1rem 1.5rem;
+}
+
+.hero-img {
   width: 100%;
-}
-
-.hero-content {
-  max-width: 800px;
-  width: 100%;
-}
-
-.hero-content h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-light);
 }
 
 .page-header {
@@ -192,7 +235,7 @@ footer {
 }
 
 /* ==========================================================================
-   5. SHOP PAGE & PRODUCT CATALOG FLEXBOX GRID
+   5. FEATURED PRODUCTS & SHOP GRID
    ========================================================================== */
 main section {
   display: flex;
@@ -201,6 +244,26 @@ main section {
   justify-content: center;
   padding: 2rem 0;
   width: 100%;
+}
+
+.featured-sets {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featured-sets h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.featured-sets p {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
 }
 
 .product-grid {
@@ -248,23 +311,17 @@ article img,
   border: 1px solid var(--border-light);
 }
 
-mark {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  background-color: var(--badge-bg);
-  color: var(--badge-text);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
 }
 
 article h3,
 .product-info h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 0.5rem;
@@ -653,42 +710,67 @@ textarea:focus {
   background-color: #22c55e;
 }
 
-/* ==========================================================================
-   10. ABOUT THE MAKER & SOCIAL SHOWCASE (HOME PAGE)
-   ========================================================================== */
-.about-maker {
-  width: 90%;
-  max-width: 900px;
+*
+  ==========================================================================
+  10.
+  ABOUT
+  THE
+  MAKER
+  &
+  SOCIAL
+  SHOWCASE
+  ==========================================================================
+  */
+  .about-maker {
+  width: 100%;
+  max-width: 1100px;
   background-color: var(--surface-white);
   border: 1px solid var(--border-light);
   border-radius: 12px;
-  padding: 3.5rem 2rem;
+  padding: 3rem 2rem;
   margin: 3rem auto 2rem auto;
   box-shadow: var(--shadow-sm);
+}
+
+.about-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.about-image-wrapper {
+  flex: 1 1 450px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .about-content {
-  width: 100%;
-  text-align: center;
+  flex: 1 1 500px;
+  text-align: left;
 }
 
-.about-maker h2 {
+.about-content h2 {
   color: var(--text-primary);
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 1.25rem;
+  text-align: left;
 }
 
-.about-maker p {
+.about-content p {
   color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
 }
 
 .social-showcase {
@@ -753,10 +835,12 @@ textarea:focus {
   background: #000000;
   color: #ffffff;
 }
+
 .platform-tag.instagram {
   background: #e1306c;
   color: #ffffff;
 }
+
 .platform-tag.facebook {
   background: #1877f2;
   color: #ffffff;
@@ -783,26 +867,39 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   11. MEDIA QUERIES (RESPONSIVENESS)
+   11. RESPONSIVE BREAKPOINTS
    ========================================================================== */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    gap: 1rem;
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
   }
 
-  nav {
-    flex-wrap: wrap;
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
     justify-content: center;
-    gap: 0.85rem 1.25rem;
   }
 
-  .custom-order-container,
-  .custom-request-box {
-    padding: 1.25rem;
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
   }
 
-  .about-maker {
-    padding: 2.5rem 1.5rem;
+  .about-content {
+    text-align: center;
+  }
+
+  .about-content h2 {
+    text-align: center;
   }
 }
