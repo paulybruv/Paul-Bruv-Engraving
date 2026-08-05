@@ -14,7 +14,7 @@
   --border-hover: #cbd5e1;
   --accent-black: #0f172a;
   --accent-hover: #334155;
-  --accent-bronze: #5d4037; /* Bronze accent matching brand logo */
+  --accent-bronze: #5d4037;
 
   /* Badges & Shadows */
   --badge-bg: #fef3c7;
@@ -54,7 +54,6 @@ h3 {
   font-family: var(--font-heading);
 }
 
-/* Base Page Container */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -78,7 +77,7 @@ main p {
 }
 
 /* ==========================================================================
-   3. NAVIGATION HEADER & FOOTER (FLEXBOX)
+   3. NAVIGATION HEADER & FOOTER
    ========================================================================== */
 header {
   display: flex;
@@ -102,7 +101,7 @@ header {
 }
 
 .logo-img {
-  max-height: 100px;
+  max-height: 80px;
   width: auto;
   transition: transform 0.2s ease;
 }
@@ -341,11 +340,13 @@ article p,
 }
 
 /* ==========================================================================
-   6. REUSABLE BUTTONS
+   6. BUTTONS
    ========================================================================== */
 .btn,
 .btn-primary {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background-color: var(--accent-black);
   color: var(--surface-white);
@@ -390,7 +391,7 @@ article a:hover,
 }
 
 /* ==========================================================================
-   7. CUSTOM ORDER PAGE & FORMS (INCL. TACTICAL COASTER BUILDER)
+   7. CUSTOM ORDER PAGE & FORMS
    ========================================================================== */
 .custom-order-container,
 .custom-request-box {
@@ -404,27 +405,6 @@ article a:hover,
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-}
-
-.custom-order-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 1.5rem;
-}
-
-.custom-order-header h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.featured-sets {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .custom-goal-form {
@@ -484,27 +464,6 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
 }
 
-.file-upload-zone {
-  border: 2px dashed var(--border-light);
-  border-radius: var(--radius);
-  padding: 2rem;
-  text-align: center;
-  background-color: var(--bg-main);
-  cursor: pointer;
-  transition:
-    border-color 0.2s,
-    background-color 0.2s;
-}
-
-.file-upload-zone:hover {
-  border-color: var(--accent-black);
-  background-color: var(--surface-white);
-}
-
-.file-upload-zone input[type="file"] {
-  display: none;
-}
-
 .btn-submit {
   width: 100%;
   padding: 0.85rem 2rem;
@@ -528,7 +487,7 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   8. EXACT MDF STREET SIGN MOCKUP (INSET CORNERS & DUAL-LAYER)
+   8. MDF STREET SIGN MOCKUP
    ========================================================================== */
 .sign-preview-wrapper {
   background: var(--surface-white);
@@ -541,7 +500,6 @@ textarea:focus {
   width: 100%;
 }
 
-/* Mockup Frame forced to exact 395 x 98.75 mm aspect ratio (4:1) */
 .mdf-mockup {
   width: 100%;
   max-width: 520px;
@@ -553,8 +511,6 @@ textarea:focus {
   justify-content: center;
   padding: 12px;
   box-sizing: border-box;
-
-  /* Inset corner shape matching physical vector cut */
   clip-path: polygon(
     14px 0%,
     calc(100% - 14px) 0%,
@@ -569,7 +525,6 @@ textarea:focus {
   transition: background-color 0.2s ease;
 }
 
-/* Style A: Black Outer Frame / White Faceplate / Black Lettering */
 .mdf-mockup.black-base-white-text {
   background-color: #121212;
 }
@@ -584,7 +539,6 @@ textarea:focus {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-/* Style B: Inverted Color Scheme */
 .mdf-mockup.white-base-black-text {
   background-color: #f2f2f2;
 }
@@ -599,7 +553,6 @@ textarea:focus {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-/* Inner Faceplate Cutout */
 .sign-border {
   width: 100%;
   height: 100%;
@@ -608,7 +561,6 @@ textarea:focus {
   justify-content: center;
   padding: 0 1.5rem;
   box-sizing: border-box;
-
   clip-path: polygon(
     10px 0%,
     calc(100% - 10px) 0%,
@@ -621,7 +573,6 @@ textarea:focus {
   );
 }
 
-/* Sign Typography */
 #preview-text-display {
   font-family:
     system-ui,
@@ -642,7 +593,7 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   9. PREMIUM FINISH TOGGLE BUTTONS
+   9. FINISH TOGGLE BUTTONS
    ========================================================================== */
 .preview-controls {
   display: flex;
@@ -683,45 +634,16 @@ textarea:focus {
   gap: 0.5rem;
 }
 
-.finish-btn::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--border-hover);
-  transition: background-color 0.2s ease;
-}
-
-.finish-btn:hover {
-  border-color: var(--accent-black);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
 .finish-btn.active {
   background-color: #121212;
   color: #ffffff;
   border-color: #121212;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
-.finish-btn.active::before {
-  background-color: #22c55e;
-}
-
-*
-  ==========================================================================
-  10.
-  ABOUT
-  THE
-  MAKER
-  &
-  SOCIAL
-  SHOWCASE
-  ==========================================================================
-  */
-  .about-maker {
+/* ==========================================================================
+   10. ABOUT THE MAKER & SOCIAL SHOWCASE
+   ========================================================================== */
+.about-maker {
   width: 100%;
   max-width: 1100px;
   background-color: var(--surface-white);
@@ -835,12 +757,10 @@ textarea:focus {
   background: #000000;
   color: #ffffff;
 }
-
 .platform-tag.instagram {
   background: #e1306c;
   color: #ffffff;
 }
-
 .platform-tag.facebook {
   background: #1877f2;
   color: #ffffff;
@@ -867,9 +787,20 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   11. RESPONSIVE BREAKPOINTS
+   11. RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem 1.25rem;
+  }
+
   .hero-container {
     flex-direction: column-reverse;
     text-align: center;
@@ -901,5 +832,10 @@ textarea:focus {
 
   .about-content h2 {
     text-align: center;
+  }
+
+  .custom-order-container,
+  .custom-request-box {
+    padding: 1.25rem;
   }
 }
