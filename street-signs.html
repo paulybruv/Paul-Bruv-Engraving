@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Layered MDF Street Signs - Pauly Bruv Engraving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Standardized Navigation Header -->
+    <header>
+      <a href="index.html" class="logo-link">
+        <img
+          src="assets/images/logo.svg"
+          alt="Pauly Bruv Engraving Logo"
+          class="logo-img"
+        />
+        <h1
+          style="
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          "
+        >
+          Pauly Bruv Engraving
+        </h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="street-signs.html" class="active">Street Signs</a>
+        <a href="tactical-coasters.html">Tactical Coasters</a>
+        <a href="magnets.html">Magnets</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <h2>3D Layered MDF Street Signs</h2>
+      <p>
+        Design your own 395x98.75mm laser-cut street sign in real-time before
+        ordering.
+      </p>
+    </section>
+
+    <main>
+      <div class="custom-order-container">
+        <section class="custom-card designer-card">
+          <!-- Live MDF Street Sign Previewer -->
+          <div class="sign-preview-wrapper">
+            <div id="mdf-sign-mockup" class="mdf-mockup black-base-white-text">
+              <div class="sign-border">
+                <span id="preview-text-display">YOUR TEXT HERE</span>
+              </div>
+            </div>
+
+            <!-- Finish Style Toggles -->
+            <div class="preview-controls">
+              <label>Color Finish Options:</label>
+              <div class="button-group">
+                <button
+                  type="button"
+                  class="finish-btn active"
+                  onclick="setFinish('black-base-white-text')"
+                >
+                  Black Sign / White Text
+                </button>
+                <button
+                  type="button"
+                  class="finish-btn"
+                  onclick="setFinish('white-base-black-text')"
+                >
+                  White Sign / Black Text
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Controls & Order Form -->
+          <form action="contact.html" method="GET" class="street-sign-form">
+            <input type="hidden" name="type" value="custom-street-sign" />
+
+            <div
+              class="form-group"
+              style="max-width: 520px; margin: 1.5rem auto 0 auto"
+            >
+              <label for="custom-text-input"
+                >Type Your Sign Wording (Max 24 chars):</label
+              >
+              <input
+                type="text"
+                id="custom-text-input"
+                name="street_sign_text"
+                class="form-control"
+                maxlength="24"
+                placeholder="e.g. ST ANDREW'S WAY B9"
+                oninput="updatePreviewText(this.value)"
+                required
+              />
+              <small
+                id="char-count"
+                style="
+                  color: var(--text-muted);
+                  margin-top: 0.25rem;
+                  display: block;
+                "
+              >
+                0 / 24 characters
+              </small>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem">
+              <button
+                type="submit"
+                class="btn btn-submit"
+                style="max-width: 300px"
+              >
+                Order This Sign (£25.00)
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- Universal Footer -->
+    <footer>
+      <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

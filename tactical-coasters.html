@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tactical Football Slate Coasters - Pauly Bruv Engraving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Standardized Navigation Header -->
+    <header>
+      <a href="index.html" class="logo-link">
+        <img
+          src="assets/images/logo.svg"
+          alt="Pauly Bruv Engraving Logo"
+          class="logo-img"
+        />
+        <h1
+          style="
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          "
+        >
+          Pauly Bruv Engraving
+        </h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="street-signs.html">Street Signs</a>
+        <a href="tactical-coasters.html" class="active">Tactical Coasters</a>
+        <a href="magnets.html">Magnets</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <h2>Tactical Football Slate Coasters</h2>
+      <p>
+        Precision laser-etched natural slate featuring iconic match goals,
+        tactical passes, and historic scorelines.
+      </p>
+    </section>
+
+    <main>
+      <!-- SECTION 1: Ready-to-Ship / Featured Sets -->
+      <section class="featured-sets">
+        <h2>Featured Match Sets</h2>
+        <p>
+          Pick from our popular pre-designed iconic moments, etched and ready to
+          go.
+        </p>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <img
+              src="assets/images/tac-coaster.jpg"
+              alt="Birmingham City Historic Match Coaster Set"
+              class="product-img"
+            />
+            <div class="product-info">
+              <h3>Blues Historic Moments Set</h3>
+              <p class="price">£12.00 (Set of 4)</p>
+              <p class="description">
+                Features four etched tactical goal routes from legendary St.
+                Andrew's fixtures.
+              </p>
+              <a href="contact.html?product=blues-set" class="btn"
+                >Order Ready Set</a
+              >
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img
+              src="assets/images/tac-coaster.jpg"
+              alt="Second City Derby Tactical Coasters"
+              class="product-img"
+            />
+            <div class="product-info">
+              <h3>Second City Derby Collection</h3>
+              <p class="price">£12.00 (Set of 4)</p>
+              <p class="description">
+                Iconic derby day goal sequences captured on rugged, natural-edge
+                slate.
+              </p>
+              <a href="contact.html?product=derby-set" class="btn"
+                >Order Ready Set</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Custom Goal Request (Supports Up To 6 Coasters) -->
+      <section class="custom-request-box">
+        <h2>Request Your Own Custom Goal Set</h2>
+        <p>
+          Specify the goals or match moments you want on each coaster in your
+          set.
+        </p>
+
+        <form action="contact.html" method="GET" class="custom-goal-form">
+          <input type="hidden" name="type" value="custom-goal-coaster" />
+
+          <div class="form-group">
+            <label for="quantitySelect">Select Set Size:</label>
+            <select id="quantitySelect" name="set_size">
+              <option value="4" selected>Set of 4 (£12.00)</option>
+              <option value="6">Set of 6 (£17.00)</option>
+              <option value="1">Single Custom Coaster (£3.50)</option>
+            </select>
+          </div>
+
+          <!-- Coaster 1 to 6 Details -->
+          <div class="form-group">
+            <label for="coaster1">Coaster 1 (Required):</label>
+            <input
+              type="text"
+              id="coaster1"
+              name="coaster_1"
+              placeholder="e.g. Birmingham City vs Arsenal (2011) - Martins 89'"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coaster2">Coaster 2:</label>
+            <input
+              type="text"
+              id="coaster2"
+              name="coaster_2"
+              placeholder="e.g. BCFC vs WBA (1976) - Francis Goal"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coaster3">Coaster 3:</label>
+            <input
+              type="text"
+              id="coaster3"
+              name="coaster_3"
+              placeholder="e.g. Match details, scorer, minute, or fixture..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coaster4">Coaster 4:</label>
+            <input
+              type="text"
+              id="coaster4"
+              name="coaster_4"
+              placeholder="e.g. Match details, scorer, minute, or fixture..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coaster5">Coaster 5 (Optional - for Set of 6):</label>
+            <input
+              type="text"
+              id="coaster5"
+              name="coaster_5"
+              placeholder="e.g. Match details, scorer, minute, or fixture..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coaster6">Coaster 6 (Optional - for Set of 6):</label>
+            <input
+              type="text"
+              id="coaster6"
+              name="coaster_6"
+              placeholder="e.g. Match details, scorer, minute, or fixture..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="customNotes"
+              >Special Requests / Specific Match Route Notes:</label
+            >
+            <textarea
+              id="customNotes"
+              name="notes"
+              rows="4"
+              placeholder="Mention any specific pass routes, stadium details, or custom text on the back..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn">Request Custom Goal Set</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Universal Footer -->
+    <footer>
+      <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

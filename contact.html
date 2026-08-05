@@ -1,73 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pauly Bruv Engraving - Contact</title>
-    <!-- Google Fonts: Noto Serif Display -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-    <!-- Main Navigation Header with Logo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Standardized Navigation Header -->
     <header>
-        <!-- Logo acts as the home link -->
-        <a href="index.html" class="logo-link">
-            <img src="assets/images/logo.svg" alt="Pauly Bruv Engraving Logo" class="logo-img">
-            <!-- Hidden h1 for accessibility/screen readers -->
-            <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Pauly Bruv Engraving</h1>
-        </a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="custom.html">Custom Orders</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+      <a href="index.html" class="logo-link">
+        <img
+          src="assets/images/logo.svg"
+          alt="Pauly Bruv Engraving Logo"
+          class="logo-img"
+        />
+        <h1
+          style="
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          "
+        >
+          Pauly Bruv Engraving
+        </h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="street-signs.html">Street Signs</a>
+        <a href="tactical-coasters.html">Tactical Coasters</a>
+        <a href="magnets.html">Magnets</a>
+        <a href="custom.html">Custom Orders</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
     </header>
 
     <!-- Contact Information -->
     <main>
-        <div class="custom-order-container">
-            <div class="custom-order-header">
-                <h2>Contact Us</h2>
-                <p>If you have any questions or would like to get in touch, please use the form below.</p>
-            </div>
-
-            <!-- Direct Contact Details -->
-            <div class="form-group" style="text-align: center; margin-bottom: 2rem;">
-                <p><strong>Email:</strong> info@paulybruvengraving.co.uk</p>
-                <p><strong>Location:</strong> Chelmsley Wood, Birmingham, West Midlands</p>
-            </div>
-
-            <!-- Form -->
-            <form action="/submit-contact" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" class="form-control" placeholder="How can we help you?" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
+      <div class="custom-order-container">
+        <div class="custom-order-header">
+          <h2>Contact Us</h2>
+          <p>
+            If you have any questions or would like to get in touch, please use
+            the form below.
+          </p>
         </div>
+
+        <!-- Direct Contact Details -->
+        <div class="form-group" style="text-align: center; margin-bottom: 2rem">
+          <p><strong>Email:</strong> info@paulybruvengraving.co.uk</p>
+          <p>
+            <strong>Location:</strong> Chelmsley Wood, Birmingham, West Midlands
+          </p>
+        </div>
+
+        <!-- Form -->
+        <form action="/submit-contact" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-control"
+              placeholder="How can we help you?"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
+      <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
     </footer>
-
-</body>
+  </body>
 </html>

@@ -1,173 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pauly Bruv Engraving - Custom Orders</title>
-    <!-- Google Fonts: Noto Serif Display -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-    <!-- Main Navigation Header with Logo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Standardized Navigation Header -->
     <header>
-        <a href="index.html" class="logo-link">
-            <img src="assets/images/logo.svg" alt="Pauly Bruv Engraving logo: stylized monochrome vector wordmark with decorative abstract emblem; reads Pauly Bruv Engraving; high contrast, professional artisanal tone" class="logo-img">
-            <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Pauly Bruv Engraving</h1>
-        </a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="custom.html">Custom Orders</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+      <a href="index.html" class="logo-link">
+        <img
+          src="assets/images/logo.svg"
+          alt="Pauly Bruv Engraving Logo"
+          class="logo-img"
+        />
+        <h1
+          style="
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          "
+        >
+          Pauly Bruv Engraving
+        </h1>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="street-signs.html">Street Signs</a>
+        <a href="tactical-coasters.html">Tactical Coasters</a>
+        <a href="magnets.html">Magnets</a>
+        <a href="custom.html" class="active">Custom Orders</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </header>
 
+    <!-- Page Header -->
+    <section class="page-header">
+      <h2>Bespoke & Custom Orders</h2>
+      <p>
+        Submit your own project ideas for slate, wood, or commercial business
+        logo engravings.
+      </p>
+    </section>
+
     <main>
-        <div class="custom-order-container">
-            <div class="custom-order-header">
-                <h2>Bespoke & Custom Orders</h2>
-                <p>Customize a 3D Layered Street Sign below, or send us a general quote request for custom slate, wood, or business logos.</p>
+      <div class="custom-order-container">
+        <!-- GENERAL CUSTOM QUOTE & FILE UPLOAD FORM -->
+        <section class="custom-card quote-card">
+          <div style="text-align: center; margin-bottom: 1.5rem">
+            <h3 style="font-size: 1.5rem">
+              Submit Your Order or Custom Quote Request
+            </h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                margin: 0 auto;
+              "
+            >
+              Provide your details below to place an order or request a quote
+              for bespoke items.
+            </p>
+          </div>
+
+          <form
+            action="contact.html"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="name">Your Full Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="John Smith"
+                required
+              />
             </div>
 
-            <!-- SECTION 1: DEDICATED STREET SIGN DESIGNER -->
-            <section class="custom-card designer-card" style="margin-bottom: 3rem; border-bottom: 2px dashed var(--border-light); padding-bottom: 2.5rem;">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <span style="background: var(--accent-black); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;">Instant Tool</span>
-                    <h3 style="font-size: 1.5rem; margin-top: 0.5rem;">1. Custom 3D Street Sign Builder</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 auto;">Design your 395x98.75mm layered MDF sign in real-time before ordering.</p>
-                </div>
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
 
-                <!-- Live MDF Street Sign Previewer -->
-                <div class="sign-preview-wrapper">
-                    <div id="mdf-sign-mockup" class="mdf-mockup black-base-white-text">
-                        <div class="sign-border">
-                            <span id="preview-text-display">YOUR TEXT HERE</span>
-                        </div>
-                    </div>
+            <div class="form-group">
+              <label for="material">Product or Preferred Material:</label>
+              <select id="material" name="material" class="form-control">
+                <option value="slate">Natural Slate Coasters / Plaques</option>
+                <option value="wood">Organic Wood / Slang Magnets</option>
+                <option value="mdf">Custom 3D MDF Sign</option>
+                <option value="other">
+                  Bespoke Commercial / Other Material
+                </option>
+              </select>
+            </div>
 
-                    <!-- Finish Style Toggles -->
-                    <div class="preview-controls">
-                        <label>Color Finish Options:</label>
-                        <div class="button-group">
-                            <button type="button" class="finish-btn active" onclick="setFinish('black-base-white-text', this)">Black Sign / White Text</button>
-                            <button type="button" class="finish-btn" onclick="setFinish('white-base-black-text', this)">White Sign / Black Text</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label for="description"
+                >Project Description & Sizing Details:</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                placeholder="Describe layout preferences, specific dates, goal path details, or custom notes..."
+                required
+              ></textarea>
+            </div>
 
-                <!-- Street Sign Specific Input -->
-                <div class="form-group" style="max-width: 520px; margin: 1.5rem auto 0 auto;">
-                    <label for="custom-text-input">Type Your Sign Wording (Max 24 chars):</label>
-                    <input type="text" 
-                           id="custom-text-input" 
-                           name="street_sign_text" 
-                           class="form-control" 
-                           maxlength="24" 
-                           placeholder="e.g. ST ANDREW'S WAY B9" 
-                           oninput="updateSignText(this.value)">
-                    <small id="char-count" style="color: var(--text-muted); margin-top: 0.25rem; display: block;">
-                        0 / 24 characters
-                    </small>
-                </div>
-            </section>
+            <div class="form-group">
+              <label for="artwork"
+                >Have your own artwork/logo? Upload here (PNG, JPG, SVG):</label
+              >
+              <div class="file-upload-zone">
+                <label
+                  for="artwork"
+                  style="cursor: pointer; color: var(--text-secondary)"
+                  >Click to upload image file or vector trace</label
+                >
+                <input
+                  type="file"
+                  id="artwork"
+                  name="artwork"
+                  accept=".png, .jpg, .jpeg, .svg"
+                />
+              </div>
+            </div>
 
-            <!-- SECTION 2: GENERAL CUSTOM QUOTE & FILE UPLOAD FORM -->
-            <section class="custom-card quote-card">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <h3 style="font-size: 1.5rem;">2. Submit Your Order or Custom Quote Request</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 auto;">Provide your contact details and project details below to place an order or request a quote.</p>
-                </div>
-
-                <form action="/submit-quote" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="name">Your Full Name:</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address:</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="material">Product or Preferred Material:</label>
-                        <select id="material" name="material" class="form-control">
-                            <option value="mdf">Layered MDF Street Sign (Designed Above)</option>
-                            <option value="slate">Natural Slate Coasters / Plaques</option>
-                            <option value="wood">Organic Wood / Slang Magnets</option>
-                            <option value="other">Bespoke Commercial / Other Material</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="description">Project Description & Sizing Details:</label>
-                        <textarea id="description" name="description" class="form-control" placeholder="Describe layout preferences, specific dates, goal path details, or custom notes..." required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="artwork">Have your own artwork/logo? Upload here (PNG, JPG, SVG):</label>
-                        <div class="file-upload-zone">
-                            <label for="artwork" style="cursor:pointer; color: var(--text-secondary);">Click to upload image file or vector trace</label>
-                            <input type="file" id="artwork" name="artwork" accept=".png, .jpg, .jpeg, .svg">
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Submit Details / Request Quote</button>
-                </form>
-            </section>
-
-        </div>
+            <button type="submit" class="btn-submit">
+              Submit Details / Request Quote
+            </button>
+          </form>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
+      <p>&copy; 2026 Pauly Bruv Engraving. All rights reserved.</p>
     </footer>
-
-    <!-- Interactive Live Preview Script -->
-    <script>
-        function updateSignText(text) {
-            const display = document.getElementById('preview-text-display');
-            const countDisplay = document.getElementById('char-count');
-            const trimmedText = text.trim();
-            const uppercaseText = text.toUpperCase();
-
-            if (display) {
-                display.innerText = trimmedText !== '' ? uppercaseText : 'YOUR TEXT HERE';
-
-                if (uppercaseText.length > 18) {
-                    display.style.fontSize = '1.05rem';
-                } else if (uppercaseText.length > 12) {
-                    display.style.fontSize = '1.25rem';
-                } else {
-                    display.style.fontSize = '1.45rem';
-                }
-            }
-
-            if (countDisplay) {
-                countDisplay.innerText = `${text.length} / 24 characters`;
-                if (text.length >= 24) {
-                    countDisplay.style.color = '#e11d48';
-                } else {
-                    countDisplay.style.color = 'var(--text-muted)';
-                }
-            }
-        }
-
-        function setFinish(finishClass, btnElement) {
-            const mockup = document.getElementById('mdf-sign-mockup');
-            if (mockup) {
-                mockup.className = 'mdf-mockup ' + finishClass;
-            }
-            document.querySelectorAll('.finish-btn').forEach(btn => btn.classList.remove('active'));
-            if (btnElement) {
-                btnElement.classList.add('active');
-            }
-        }
-    </script>
-
-</body>
+  </body>
 </html>
