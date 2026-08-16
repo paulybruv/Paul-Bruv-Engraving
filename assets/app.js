@@ -20,7 +20,7 @@ function updatePreviewText(text) {
 
   if (charCount) {
     charCount.textContent = `${text.length} / 24 characters`;
-    charCount.style.color = text.length >= 24 ? "#e11d48" : "var(--text-muted)";
+    charCount.style.color = text.length >= 24 ? "#e11d48" : "#6c757d";
   }
 }
 
