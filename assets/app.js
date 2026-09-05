@@ -1,3 +1,24 @@
+/**
+ * Calculate typing speed using the standard five-characters-per-word
+ * conversion.
+ *
+ * @param {number} characterCount Number of characters typed.
+ * @param {number} elapsedSeconds Time taken, in seconds.
+ * @returns {number} Words typed per minute, or 0 for invalid durations.
+ */
+function calculateWPM(characterCount, elapsedSeconds) {
+  if (
+    !Number.isFinite(characterCount) ||
+    !Number.isFinite(elapsedSeconds) ||
+    characterCount < 0 ||
+    elapsedSeconds <= 0
+  ) {
+    return 0;
+  }
+
+  return (characterCount / 5) * (60 / elapsedSeconds);
+}
+
 // Function triggered directly when typing in the input field
 function updatePreviewText(text) {
   const textDisplay = document.getElementById("preview-text-display");
